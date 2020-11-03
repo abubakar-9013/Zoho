@@ -6,8 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
+    
+    var isCheckedIn = false
+    var timer = Timer()
+    var timer2 = Timer()
+    var timer3 = Timer()
     
     let profilePictureView:UIView = {
        
@@ -174,7 +180,7 @@ class HomeViewController: UIViewController {
     let minuteLabel:UILabel = {
        
         let lbl = UILabel()
-        lbl.text = "15"
+        lbl.text = "00"
         lbl.font = UIFont.systemFont(ofSize: 24.autoSized, weight: .medium)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
@@ -193,7 +199,7 @@ class HomeViewController: UIViewController {
     let hourLabel:UILabel = {
        
         let lbl = UILabel()
-        lbl.text = "01"
+        lbl.text = "00"
         lbl.font = UIFont.systemFont(ofSize: 24.autoSized, weight: .medium)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
@@ -212,7 +218,7 @@ class HomeViewController: UIViewController {
     let secondsLabel:UILabel = {
        
         let lbl = UILabel()
-        lbl.text = "19"
+        lbl.text = "00"
         lbl.font = UIFont.systemFont(ofSize: 24.autoSized, weight: .medium)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
@@ -254,11 +260,12 @@ class HomeViewController: UIViewController {
     let checkoutButton:UIButton = {
        
         let btn = UIButton()
-        btn.setTitle("CHECK-OUT", for: .normal)
+        btn.setTitle("CHECK-IN", for: .normal)
         btn.dropShadow(color: .red, opacity: 0.5, offSet: CGSize(width: -1.autoSized, height: 2.autoSized), radius: 2.autoSized, scale: true)
         btn.translatesAutoresizingMaskIntoConstraints = false
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 14.autoSized, weight: .bold)
         btn.backgroundColor = .customRed
+        btn.addTarget(self, action: #selector(startTimer), for: .touchUpInside)
         return btn
         
     }()
@@ -601,6 +608,7 @@ class HomeViewController: UIViewController {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 12.autoSized, weight: .heavy)
         btn.backgroundColor = .LightBackgroundBlue
         btn.setTitleColor(.black, for: .normal)
+        btn.addTarget(self, action: #selector(viewMore), for: .touchUpInside)
         return btn
         
     }()
@@ -654,7 +662,118 @@ class HomeViewController: UIViewController {
         self.navigationItem.rightBarButtonItems = [bellBarBtn,searchBarBtn]
         
         setupHomeVC()
+        
+            
     }
+    
+    func moveRight(view: UIView) {
+        view.center.x += 15.autoSized
+        }
+        
+        func moveLeft(view: UIView) {
+            view.center.x -= 15.autoSized
+        }
+    
+    func LeftToRightAnimation(View:UIView) {
+        
+        timer2 = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+            UIView.animate(withDuration: 1, animations: {
+                self.moveRight(view: View)
+            }) { (finished) in
+                if finished {
+                    UIView.animate(withDuration: 1, animations: {
+                        self.moveLeft(view: View)
+                    })
+                }
+            }
+        }
+    }
+    
+    func RightToLeftAnimation(View:UIView) {
+        
+        timer3 = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
+            UIView.animate(withDuration: 1, animations: {
+                self.moveLeft(view: View)
+            }) { (finished) in
+                if finished {
+                    UIView.animate(withDuration: 1, animations: {
+                        self.moveRight(view: View)
+                    })
+                }
+            }
+        }
+    }
+    
+    //MARK:- @Objc Functions
+    
+    
+    @objc func startTimer() {
+        
+        
+        let date = NSDate()
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm:ss"
+        let currentTime = timeFormatter.string(from: date as Date)
+        
+        let dayFormatter = DateFormatter()
+        dayFormatter.dateFormat = "MMMM-dd-yyyy"
+        let currentDay = dayFormatter.string(from: date as Date)
+        
+        if isCheckedIn == true {
+            isCheckedIn = false
+            sunImageView.stopRotation()
+            Firebase.Firestore.firestore().collection("Attendance").document("UserID").setData([currentDay : [ "Check-Out-Time": currentTime, "Date": currentDay]
+            ], merge: true)
+            checkoutButton.setTitle("CHECK-IN", for: .normal)
+            timer.invalidate()
+            timer2.invalidate()
+            timer3.invalidate()
+            
+        }
+        else {
+            isCheckedIn = true
+            checkoutButton.setTitle("CHECK-OUT", for: .normal)
+            LeftToRightAnimation(View:leftCloudImageView)
+            RightToLeftAnimation(View: rightCloudImageView)
+            //Add CheckIn time to Firestore
+            Firebase.Firestore.firestore().collection("Attendance").document("UserID").setData([currentDay : [ "Check-In-Time": currentTime]
+            ])
+            
+            var secondCount = 0
+            var minuteCount = 0
+            var hourCount = 0
+            
+            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
+                [weak self] (timer) in
+                    secondCount += 1
+                    self!.sunImageView.startRotation()
+                    self!.secondsLabel.pushTransition(1)
+                    self!.secondsLabel.text = String(format: "%02d", secondCount)
+                
+                 if secondCount == 60 {
+                    secondCount = 0
+                    minuteCount += 1
+                    self?.minuteLabel.text = String(format: "%02d", minuteCount)
+                    self?.minuteLabel.pushTransition(1)
+                    self!.secondsLabel.text = String(format: "%02d", secondCount)
+                if minuteCount == 60 {
+                    minuteCount = 0
+                    hourCount += 1
+                    self?.minuteLabel.text = String(format: "%02d", minuteCount)
+                    self?.hourLabel.pushTransition(1)
+                    self?.minuteLabel.text = String(format: "%02d", hourCount)
+                }
+            }
+        }
+    }
+}
+    
+    @objc func viewMore() {
+        let vc = Home_DepartmentMembers_ViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     
     func setupHomeVC() {
         
@@ -730,7 +849,6 @@ class HomeViewController: UIViewController {
         leaveReportTableView.register(Home_LeaveReport_TableViewCell.self, forCellReuseIdentifier: "LeaveReportCell")
         leaveReportTableView.delegate = self
         leaveReportTableView.dataSource = self
-        
         
         
         

@@ -24,6 +24,35 @@ extension UIView {
     func flipY() {
            transform = CGAffineTransform(scaleX: transform.a, y: -transform.d)
        }
+    
+    func pushTransition(_ duration:CFTimeInterval) {
+         let animation:CATransition = CATransition()
+         animation.timingFunction = CAMediaTimingFunction(name:
+         CAMediaTimingFunctionName.default)
+        animation.type = CATransitionType.push
+         animation.subtype = CATransitionSubtype.fromBottom
+         animation.duration = duration
+         layer.add(animation, forKey: CATransitionType.push.rawValue)
+     }
+    
+    func startRotation() {
+                let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
+                rotation.toValue = NSNumber(value: Double.pi * 2)
+                rotation.duration = 1
+                rotation.isCumulative = true
+                rotation.repeatCount = Float.greatestFiniteMagnitude
+                self.layer.add(rotation, forKey: "rotationAnimation")
+        }
+
+        // Stop rotation
+        func stopRotation() {
+            self.layer.removeAnimation(forKey: "rotationAnimation")
+        }
+    
+    func leftToRight() {
+        
+   
+    }
  }
 
 

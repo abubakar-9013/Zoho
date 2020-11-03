@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>396312363146-ba2sg8nmdbgoseg84fj3lgt8lgh8bina.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.396312363146-ba2sg8nmdbgoseg84fj3lgt8lgh8bina</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCfheDuMjZkGmKUK_O56S_GYW6IfWu08cs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>396312363146</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>O3-Interfaces.Zoho</string>
+	<key>PROJECT_ID</key>
+	<string>zoho-clone</string>
+	<key>STORAGE_BUCKET</key>
+	<string>zoho-clone.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:396312363146:ios:59bed1453cc5e7b763ad73</string>
+	<key>DATABASE_URL</key>
+	<string>https://zoho-clone.firebaseio.com</string>
+</dict>
+</plist>

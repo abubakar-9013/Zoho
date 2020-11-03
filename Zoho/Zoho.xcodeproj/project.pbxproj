@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,7 +15,10 @@
 		185A78B7254CBA9800EE766E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A78B6254CBA9800EE766E /* HomeViewController.swift */; };
 		185A78BB254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A78BA254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift */; };
 		187D2AB3254E455800DC520B /* Home_Department_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D2AB2254E455800DC520B /* Home_Department_TableViewCell.swift */; };
+		18842A8E2550073B006D858F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18842A8D2550073B006D858F /* GoogleService-Info.plist */; };
 		18B15D2C254F358700937344 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B15D2B254F358700937344 /* TabViewController.swift */; };
+		18B5416125511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5416025511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift */; };
+		18B5416425511F540058E36D /* Home_DepartmentMembers_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5416325511F540058E36D /* Home_DepartmentMembers_ViewController.swift */; };
 		18C5CB11254B294000E09B3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5CB10254B294000E09B3C /* AppDelegate.swift */; };
 		18C5CB15254B294000E09B3C /* IntroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5CB14254B294000E09B3C /* IntroScreenViewController.swift */; };
 		18C5CB1A254B294C00E09B3C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18C5CB19254B294C00E09B3C /* Assets.xcassets */; };
@@ -36,7 +39,10 @@
 		185A78B6254CBA9800EE766E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		185A78BA254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_LeaveReport_TableViewCell.swift; sourceTree = "<group>"; };
 		187D2AB2254E455800DC520B /* Home_Department_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Department_TableViewCell.swift; sourceTree = "<group>"; };
+		18842A8D2550073B006D858F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18B15D2B254F358700937344 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
+		18B5416025511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_DepartmentMembers_TableViewCell.swift; sourceTree = "<group>"; };
+		18B5416325511F540058E36D /* Home_DepartmentMembers_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_DepartmentMembers_ViewController.swift; sourceTree = "<group>"; };
 		18C5CB0D254B294000E09B3C /* Zoho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zoho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C5CB10254B294000E09B3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18C5CB14254B294000E09B3C /* IntroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreenViewController.swift; sourceTree = "<group>"; };
@@ -48,6 +54,8 @@
 		18C5CB36254B34CE00E09B3C /* Core Sans M W01 65 Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Core Sans M W01 65 Bold.otf"; sourceTree = "<group>"; };
 		18C5CB3A254B3D4000E09B3C /* Core Sans M W01 45 Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Core Sans M W01 45 Regular.otf"; sourceTree = "<group>"; };
 		18C5CB3E254B3DBC00E09B3C /* Core Sans M 55 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Core Sans M 55 Medium.ttf"; sourceTree = "<group>"; };
+		40F6B64047D0CE6B5D72FD19 /* Pods-Zoho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoho.release.xcconfig"; path = "Target Support Files/Pods-Zoho/Pods-Zoho.release.xcconfig"; sourceTree = "<group>"; };
+		8F0415B41F6D8198767D1185 /* Pods-Zoho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoho.debug.xcconfig"; path = "Target Support Files/Pods-Zoho/Pods-Zoho.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,7 @@
 				185A789C254C3D7A00EE766E /* IntroScreenCollectionViewCell.swift */,
 				185A78BA254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift */,
 				187D2AB2254E455800DC520B /* Home_Department_TableViewCell.swift */,
+				18B5416025511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -92,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				185A78B6254CBA9800EE766E /* HomeViewController.swift */,
+				18B5416325511F540058E36D /* Home_DepartmentMembers_ViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -101,6 +111,8 @@
 			children = (
 				18C5CB0F254B294000E09B3C /* Zoho */,
 				18C5CB0E254B294000E09B3C /* Products */,
+				64EE593465E3E81BF37AE42E /* Pods */,
+				D2AFCE7AAE12E5FAE4CC6AA1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -151,6 +163,23 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		64EE593465E3E81BF37AE42E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8F0415B41F6D8198767D1185 /* Pods-Zoho.debug.xcconfig */,
+				40F6B64047D0CE6B5D72FD19 /* Pods-Zoho.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D2AFCE7AAE12E5FAE4CC6AA1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				18842A8D2550073B006D858F /* GoogleService-Info.plist */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -158,9 +187,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18C5CB21254B294C00E09B3C /* Build configuration list for PBXNativeTarget "Zoho" */;
 			buildPhases = (
+				53CD625BAC959DE3BE5B08AD /* [CP] Check Pods Manifest.lock */,
 				18C5CB09254B294000E09B3C /* Sources */,
 				18C5CB0A254B294000E09B3C /* Frameworks */,
 				18C5CB0B254B294000E09B3C /* Resources */,
+				B8021656D6F744B6A1D76CB0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,12 +245,55 @@
 				18C5CB3B254B3D4100E09B3C /* Core Sans M W01 45 Regular.otf in Resources */,
 				185A78A5254C541300EE766E /* Cretype Artico ExtraBold.otf in Resources */,
 				18C5CB1D254B294C00E09B3C /* LaunchScreen.storyboard in Resources */,
+				18842A8E2550073B006D858F /* GoogleService-Info.plist in Resources */,
 				18C5CB1A254B294C00E09B3C /* Assets.xcassets in Resources */,
 				18C5CB3F254B3DBC00E09B3C /* Core Sans M 55 Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		53CD625BAC959DE3BE5B08AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Zoho-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B8021656D6F744B6A1D76CB0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zoho/Pods-Zoho-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zoho/Pods-Zoho-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zoho/Pods-Zoho-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		18C5CB09254B294000E09B3C /* Sources */ = {
@@ -229,6 +303,7 @@
 				187D2AB3254E455800DC520B /* Home_Department_TableViewCell.swift in Sources */,
 				185A78A2254C411900EE766E /* Structs and Enums.swift in Sources */,
 				18C5CB15254B294000E09B3C /* IntroScreenViewController.swift in Sources */,
+				18B5416425511F540058E36D /* Home_DepartmentMembers_ViewController.swift in Sources */,
 				185A789D254C3D7A00EE766E /* IntroScreenCollectionViewCell.swift in Sources */,
 				18C5CB2A254B2C3A00E09B3C /* Extensions.swift in Sources */,
 				18C5CB11254B294000E09B3C /* AppDelegate.swift in Sources */,
@@ -236,6 +311,7 @@
 				185A78BB254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift in Sources */,
 				18B15D2C254F358700937344 /* TabViewController.swift in Sources */,
 				185A78AF254C902F00EE766E /* CustomPageControl.swift in Sources */,
+				18B5416125511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +447,7 @@
 		};
 		18C5CB22254B294C00E09B3C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8F0415B41F6D8198767D1185 /* Pods-Zoho.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -389,6 +466,7 @@
 		};
 		18C5CB23254B294C00E09B3C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40F6B64047D0CE6B5D72FD19 /* Pods-Zoho.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

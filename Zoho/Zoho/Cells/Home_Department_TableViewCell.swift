@@ -111,7 +111,7 @@ class Home_Department_TableViewCell: UITableViewCell {
             //PersonID Label
             personID.leadingAnchor.constraint(equalTo: idIcon.trailingAnchor, constant: 5.autoSized),
             personID.centerYAnchor.constraint(equalTo: idIcon.centerYAnchor, constant: 0),
-            personID.widthAnchor.constraint(equalToConstant: 75.autoSized),
+            personID.widthAnchor.constraint(equalToConstant: 80.autoSized),
             
             //MobileIcon ImageView
             mobileIconImageView.leadingAnchor.constraint(equalTo: personID.trailingAnchor, constant: 5.autoSized),

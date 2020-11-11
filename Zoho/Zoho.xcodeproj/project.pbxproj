@@ -7,6 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1800E600255A4EA2007EC528 /* Service_Holidays_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800E5FF255A4EA2007EC528 /* Service_Holidays_ViewController.swift */; };
+		1800E603255A4FC9007EC528 /* Service_Holiday_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800E602255A4FC9007EC528 /* Service_Holiday_TableViewCell.swift */; };
+		1800E608255A5B04007EC528 /* Service_TimeTracker_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800E607255A5B04007EC528 /* Service_TimeTracker_ViewController.swift */; };
+		1800E60C255A5E45007EC528 /* Service_TimeLogs_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1800E60B255A5E45007EC528 /* Service_TimeLogs_ViewController.swift */; };
+		1828378D2553D86000486FD2 /* Home_Notification_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828378C2553D86000486FD2 /* Home_Notification_ViewController.swift */; };
+		182837902553D88A00486FD2 /* Home_Notification_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1828378F2553D88A00486FD2 /* Home_Notification_TableViewCell.swift */; };
+		182837932554097900486FD2 /* Home_Profile_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182837922554097900486FD2 /* Home_Profile_ViewController.swift */; };
+		182837962554108800486FD2 /* Home_Search_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 182837952554108800486FD2 /* Home_Search_ViewController.swift */; };
+		18283799255410B900486FD2 /* Home_Search_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18283798255410B900486FD2 /* Home_Search_TableViewCell.swift */; };
+		1858AE86255902910096BF67 /* Service_LeaveTracker_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858AE85255902910096BF67 /* Service_LeaveTracker_ViewController.swift */; };
+		1858AE8E255907000096BF67 /* Service_LeaveTracker_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858AE8D255907000096BF67 /* Service_LeaveTracker_TableViewCell.swift */; };
+		1858AE91255912000096BF67 /* Service_LeaveView_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858AE90255912000096BF67 /* Service_LeaveView_ViewController.swift */; };
+		1858AE942559202A0096BF67 /* Service_LeaveView_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858AE93255920290096BF67 /* Service_LeaveView_TableViewCell.swift */; };
+		1858AE97255945620096BF67 /* Service_LeaveDetail_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858AE96255945610096BF67 /* Service_LeaveDetail_ViewController.swift */; };
+		1858AE9A255949400096BF67 /* Service_LeaveDetails_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858AE99255949400096BF67 /* Service_LeaveDetails_TableViewCell.swift */; };
+		1858AE9D255963630096BF67 /* Service_CompensatoryReq_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1858AE9C255963620096BF67 /* Service_CompensatoryReq_ViewController.swift */; };
 		185A789D254C3D7A00EE766E /* IntroScreenCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A789C254C3D7A00EE766E /* IntroScreenCollectionViewCell.swift */; };
 		185A78A2254C411900EE766E /* Structs and Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A78A1254C411900EE766E /* Structs and Enums.swift */; };
 		185A78A5254C541300EE766E /* Cretype Artico ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 185A78A4254C541300EE766E /* Cretype Artico ExtraBold.otf */; };
@@ -14,10 +30,21 @@
 		185A78AF254C902F00EE766E /* CustomPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A78AE254C902F00EE766E /* CustomPageControl.swift */; };
 		185A78B7254CBA9800EE766E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A78B6254CBA9800EE766E /* HomeViewController.swift */; };
 		185A78BB254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185A78BA254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift */; };
+		185E56CE2551612C00281AED /* Home_ApplyLeave_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185E56CD2551612C00281AED /* Home_ApplyLeave_TableViewCell.swift */; };
+		1862E1EB255821170016D7A0 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862E1EA255821170016D7A0 /* ServicesViewController.swift */; };
+		1862E1EF25582E890016D7A0 /* CustomClassWithNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862E1EE25582E890016D7A0 /* CustomClassWithNavBar.swift */; };
+		1862E1F3255844DC0016D7A0 /* ServicesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1862E1F2255844DC0016D7A0 /* ServicesCollectionViewCell.swift */; };
+		1865E6C625513E170064EA65 /* Home_LeaveReport_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865E6C525513E170064EA65 /* Home_LeaveReport_ViewController.swift */; };
+		1865E6CA2551532F0064EA65 /* Home_ApplyLeave_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865E6C92551532F0064EA65 /* Home_ApplyLeave_ViewController.swift */; };
+		187CDCFB2559A5AA0033EB98 /* Service_AddRequest_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CDCFA2559A5AA0033EB98 /* Service_AddRequest_ViewController.swift */; };
+		187CDCFE2559B4FD0033EB98 /* Service_Filter_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187CDCFD2559B4FD0033EB98 /* Service_Filter_ViewController.swift */; };
 		187D2AB3254E455800DC520B /* Home_Department_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187D2AB2254E455800DC520B /* Home_Department_TableViewCell.swift */; };
+		1882335D2552BD1800E16CBF /* Home_Health_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1882335C2552BD1700E16CBF /* Home_Health_ViewController.swift */; };
+		188233602552BDB200E16CBF /* CustomViewForHealth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1882335F2552BDB200E16CBF /* CustomViewForHealth.swift */; };
 		18842A8E2550073B006D858F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18842A8D2550073B006D858F /* GoogleService-Info.plist */; };
+		18959100255534C5000E70AB /* CustomViewForProfileSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189590FF255534C5000E70AB /* CustomViewForProfileSection.swift */; };
+		189591082556ACF3000E70AB /* Home_Profile_BasicInfo_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189591072556ACF3000E70AB /* Home_Profile_BasicInfo_TableViewCell.swift */; };
 		18B15D2C254F358700937344 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B15D2B254F358700937344 /* TabViewController.swift */; };
-		18B5416125511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5416025511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift */; };
 		18B5416425511F540058E36D /* Home_DepartmentMembers_ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B5416325511F540058E36D /* Home_DepartmentMembers_ViewController.swift */; };
 		18C5CB11254B294000E09B3C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5CB10254B294000E09B3C /* AppDelegate.swift */; };
 		18C5CB15254B294000E09B3C /* IntroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C5CB14254B294000E09B3C /* IntroScreenViewController.swift */; };
@@ -28,9 +55,26 @@
 		18C5CB37254B34CE00E09B3C /* Core Sans M W01 65 Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18C5CB36254B34CE00E09B3C /* Core Sans M W01 65 Bold.otf */; };
 		18C5CB3B254B3D4100E09B3C /* Core Sans M W01 45 Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 18C5CB3A254B3D4000E09B3C /* Core Sans M W01 45 Regular.otf */; };
 		18C5CB3F254B3DBC00E09B3C /* Core Sans M 55 Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 18C5CB3E254B3DBC00E09B3C /* Core Sans M 55 Medium.ttf */; };
+		4DB121BD0A4B426A2A484758 /* Pods_Zoho.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D567BD16C7EABFFFAAA074A /* Pods_Zoho.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1800E5FF255A4EA2007EC528 /* Service_Holidays_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_Holidays_ViewController.swift; sourceTree = "<group>"; };
+		1800E602255A4FC9007EC528 /* Service_Holiday_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_Holiday_TableViewCell.swift; sourceTree = "<group>"; };
+		1800E607255A5B04007EC528 /* Service_TimeTracker_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_TimeTracker_ViewController.swift; sourceTree = "<group>"; };
+		1800E60B255A5E45007EC528 /* Service_TimeLogs_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_TimeLogs_ViewController.swift; sourceTree = "<group>"; };
+		1828378C2553D86000486FD2 /* Home_Notification_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Notification_ViewController.swift; sourceTree = "<group>"; };
+		1828378F2553D88A00486FD2 /* Home_Notification_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Notification_TableViewCell.swift; sourceTree = "<group>"; };
+		182837922554097900486FD2 /* Home_Profile_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Profile_ViewController.swift; sourceTree = "<group>"; };
+		182837952554108800486FD2 /* Home_Search_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Search_ViewController.swift; sourceTree = "<group>"; };
+		18283798255410B900486FD2 /* Home_Search_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Search_TableViewCell.swift; sourceTree = "<group>"; };
+		1858AE85255902910096BF67 /* Service_LeaveTracker_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_LeaveTracker_ViewController.swift; sourceTree = "<group>"; };
+		1858AE8D255907000096BF67 /* Service_LeaveTracker_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_LeaveTracker_TableViewCell.swift; sourceTree = "<group>"; };
+		1858AE90255912000096BF67 /* Service_LeaveView_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_LeaveView_ViewController.swift; sourceTree = "<group>"; };
+		1858AE93255920290096BF67 /* Service_LeaveView_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_LeaveView_TableViewCell.swift; sourceTree = "<group>"; };
+		1858AE96255945610096BF67 /* Service_LeaveDetail_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_LeaveDetail_ViewController.swift; sourceTree = "<group>"; };
+		1858AE99255949400096BF67 /* Service_LeaveDetails_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_LeaveDetails_TableViewCell.swift; sourceTree = "<group>"; };
+		1858AE9C255963620096BF67 /* Service_CompensatoryReq_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_CompensatoryReq_ViewController.swift; sourceTree = "<group>"; };
 		185A789C254C3D7A00EE766E /* IntroScreenCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroScreenCollectionViewCell.swift; sourceTree = "<group>"; };
 		185A78A1254C411900EE766E /* Structs and Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Structs and Enums.swift"; sourceTree = "<group>"; };
 		185A78A4254C541300EE766E /* Cretype Artico ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cretype Artico ExtraBold.otf"; sourceTree = "<group>"; };
@@ -38,10 +82,21 @@
 		185A78AE254C902F00EE766E /* CustomPageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPageControl.swift; sourceTree = "<group>"; };
 		185A78B6254CBA9800EE766E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		185A78BA254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_LeaveReport_TableViewCell.swift; sourceTree = "<group>"; };
+		185E56CD2551612C00281AED /* Home_ApplyLeave_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_ApplyLeave_TableViewCell.swift; sourceTree = "<group>"; };
+		1862E1EA255821170016D7A0 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
+		1862E1EE25582E890016D7A0 /* CustomClassWithNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomClassWithNavBar.swift; sourceTree = "<group>"; };
+		1862E1F2255844DC0016D7A0 /* ServicesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesCollectionViewCell.swift; sourceTree = "<group>"; };
+		1865E6C525513E170064EA65 /* Home_LeaveReport_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_LeaveReport_ViewController.swift; sourceTree = "<group>"; };
+		1865E6C92551532F0064EA65 /* Home_ApplyLeave_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_ApplyLeave_ViewController.swift; sourceTree = "<group>"; };
+		187CDCFA2559A5AA0033EB98 /* Service_AddRequest_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_AddRequest_ViewController.swift; sourceTree = "<group>"; };
+		187CDCFD2559B4FD0033EB98 /* Service_Filter_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service_Filter_ViewController.swift; sourceTree = "<group>"; };
 		187D2AB2254E455800DC520B /* Home_Department_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Department_TableViewCell.swift; sourceTree = "<group>"; };
+		1882335C2552BD1700E16CBF /* Home_Health_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Health_ViewController.swift; sourceTree = "<group>"; };
+		1882335F2552BDB200E16CBF /* CustomViewForHealth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewForHealth.swift; sourceTree = "<group>"; };
 		18842A8D2550073B006D858F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		189590FF255534C5000E70AB /* CustomViewForProfileSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewForProfileSection.swift; sourceTree = "<group>"; };
+		189591072556ACF3000E70AB /* Home_Profile_BasicInfo_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_Profile_BasicInfo_TableViewCell.swift; sourceTree = "<group>"; };
 		18B15D2B254F358700937344 /* TabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
-		18B5416025511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_DepartmentMembers_TableViewCell.swift; sourceTree = "<group>"; };
 		18B5416325511F540058E36D /* Home_DepartmentMembers_ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home_DepartmentMembers_ViewController.swift; sourceTree = "<group>"; };
 		18C5CB0D254B294000E09B3C /* Zoho.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zoho.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18C5CB10254B294000E09B3C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,7 +109,9 @@
 		18C5CB36254B34CE00E09B3C /* Core Sans M W01 65 Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Core Sans M W01 65 Bold.otf"; sourceTree = "<group>"; };
 		18C5CB3A254B3D4000E09B3C /* Core Sans M W01 45 Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Core Sans M W01 45 Regular.otf"; sourceTree = "<group>"; };
 		18C5CB3E254B3DBC00E09B3C /* Core Sans M 55 Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Core Sans M 55 Medium.ttf"; sourceTree = "<group>"; };
+		18C72E6925528A8A00E41EC0 /* Zoho.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Zoho.entitlements; sourceTree = "<group>"; };
 		40F6B64047D0CE6B5D72FD19 /* Pods-Zoho.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoho.release.xcconfig"; path = "Target Support Files/Pods-Zoho/Pods-Zoho.release.xcconfig"; sourceTree = "<group>"; };
+		4D567BD16C7EABFFFAAA074A /* Pods_Zoho.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Zoho.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F0415B41F6D8198767D1185 /* Pods-Zoho.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Zoho.debug.xcconfig"; path = "Target Support Files/Pods-Zoho/Pods-Zoho.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,19 +120,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB121BD0A4B426A2A484758 /* Pods_Zoho.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1800E605255A5A9E007EC528 /* Leave Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				1858AE85255902910096BF67 /* Service_LeaveTracker_ViewController.swift */,
+				1858AE90255912000096BF67 /* Service_LeaveView_ViewController.swift */,
+				1858AE96255945610096BF67 /* Service_LeaveDetail_ViewController.swift */,
+				1858AE9C255963620096BF67 /* Service_CompensatoryReq_ViewController.swift */,
+				187CDCFA2559A5AA0033EB98 /* Service_AddRequest_ViewController.swift */,
+				187CDCFD2559B4FD0033EB98 /* Service_Filter_ViewController.swift */,
+				1800E5FF255A4EA2007EC528 /* Service_Holidays_ViewController.swift */,
+			);
+			path = "Leave Tracker";
+			sourceTree = "<group>";
+		};
+		1800E606255A5AC8007EC528 /* Time Tracker */ = {
+			isa = PBXGroup;
+			children = (
+				1800E607255A5B04007EC528 /* Service_TimeTracker_ViewController.swift */,
+				1800E60B255A5E45007EC528 /* Service_TimeLogs_ViewController.swift */,
+			);
+			path = "Time Tracker";
+			sourceTree = "<group>";
+		};
 		185A789B254C3D5300EE766E /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				185A789C254C3D7A00EE766E /* IntroScreenCollectionViewCell.swift */,
 				185A78BA254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift */,
 				187D2AB2254E455800DC520B /* Home_Department_TableViewCell.swift */,
-				18B5416025511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift */,
+				185E56CD2551612C00281AED /* Home_ApplyLeave_TableViewCell.swift */,
+				1828378F2553D88A00486FD2 /* Home_Notification_TableViewCell.swift */,
+				18283798255410B900486FD2 /* Home_Search_TableViewCell.swift */,
+				189591072556ACF3000E70AB /* Home_Profile_BasicInfo_TableViewCell.swift */,
+				1862E1F2255844DC0016D7A0 /* ServicesCollectionViewCell.swift */,
+				1858AE8D255907000096BF67 /* Service_LeaveTracker_TableViewCell.swift */,
+				1858AE93255920290096BF67 /* Service_LeaveView_TableViewCell.swift */,
+				1858AE99255949400096BF67 /* Service_LeaveDetails_TableViewCell.swift */,
+				1800E602255A4FC9007EC528 /* Service_Holiday_TableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -102,8 +191,24 @@
 			children = (
 				185A78B6254CBA9800EE766E /* HomeViewController.swift */,
 				18B5416325511F540058E36D /* Home_DepartmentMembers_ViewController.swift */,
+				1865E6C525513E170064EA65 /* Home_LeaveReport_ViewController.swift */,
+				1865E6C92551532F0064EA65 /* Home_ApplyLeave_ViewController.swift */,
+				1882335C2552BD1700E16CBF /* Home_Health_ViewController.swift */,
+				1828378C2553D86000486FD2 /* Home_Notification_ViewController.swift */,
+				182837922554097900486FD2 /* Home_Profile_ViewController.swift */,
+				182837952554108800486FD2 /* Home_Search_ViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		1862E1E9255820EE0016D7A0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				1862E1EA255821170016D7A0 /* ServicesViewController.swift */,
+				1800E605255A5A9E007EC528 /* Leave Tracker */,
+				1800E606255A5AC8007EC528 /* Time Tracker */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		18C5CB04254B294000E09B3C = {
@@ -127,6 +232,8 @@
 		18C5CB0F254B294000E09B3C /* Zoho */ = {
 			isa = PBXGroup;
 			children = (
+				18C72E6925528A8A00E41EC0 /* Zoho.entitlements */,
+				1862E1E9255820EE0016D7A0 /* Services */,
 				185A78B5254CBA1900EE766E /* Home */,
 				185A78B4254CB9EA00EE766E /* IntroViewController */,
 				185A78A0254C40F300EE766E /* Data */,
@@ -136,7 +243,6 @@
 				18C5CB19254B294C00E09B3C /* Assets.xcassets */,
 				18C5CB1B254B294C00E09B3C /* LaunchScreen.storyboard */,
 				18C5CB1E254B294C00E09B3C /* Info.plist */,
-				18B15D2B254F358700937344 /* TabViewController.swift */,
 			);
 			path = Zoho;
 			sourceTree = "<group>";
@@ -146,6 +252,10 @@
 			children = (
 				18C5CB29254B2C3A00E09B3C /* Extensions.swift */,
 				18C5CB2E254B301900E09B3C /* Fonts */,
+				1882335F2552BDB200E16CBF /* CustomViewForHealth.swift */,
+				189590FF255534C5000E70AB /* CustomViewForProfileSection.swift */,
+				18B15D2B254F358700937344 /* TabViewController.swift */,
+				1862E1EE25582E890016D7A0 /* CustomClassWithNavBar.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -176,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				18842A8D2550073B006D858F /* GoogleService-Info.plist */,
+				4D567BD16C7EABFFFAAA074A /* Pods_Zoho.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -192,6 +303,7 @@
 				18C5CB0A254B294000E09B3C /* Frameworks */,
 				18C5CB0B254B294000E09B3C /* Resources */,
 				B8021656D6F744B6A1D76CB0 /* [CP] Embed Pods Frameworks */,
+				9450C1BBA9293FF7CD3A967F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,6 +388,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9450C1BBA9293FF7CD3A967F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zoho/Pods-Zoho-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Zoho/Pods-Zoho-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Zoho/Pods-Zoho-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		B8021656D6F744B6A1D76CB0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -301,17 +430,44 @@
 			buildActionMask = 2147483647;
 			files = (
 				187D2AB3254E455800DC520B /* Home_Department_TableViewCell.swift in Sources */,
+				1858AE9D255963630096BF67 /* Service_CompensatoryReq_ViewController.swift in Sources */,
 				185A78A2254C411900EE766E /* Structs and Enums.swift in Sources */,
+				189591082556ACF3000E70AB /* Home_Profile_BasicInfo_TableViewCell.swift in Sources */,
 				18C5CB15254B294000E09B3C /* IntroScreenViewController.swift in Sources */,
+				182837902553D88A00486FD2 /* Home_Notification_TableViewCell.swift in Sources */,
+				182837932554097900486FD2 /* Home_Profile_ViewController.swift in Sources */,
 				18B5416425511F540058E36D /* Home_DepartmentMembers_ViewController.swift in Sources */,
+				1800E603255A4FC9007EC528 /* Service_Holiday_TableViewCell.swift in Sources */,
+				187CDCFB2559A5AA0033EB98 /* Service_AddRequest_ViewController.swift in Sources */,
+				1828378D2553D86000486FD2 /* Home_Notification_ViewController.swift in Sources */,
+				1858AE9A255949400096BF67 /* Service_LeaveDetails_TableViewCell.swift in Sources */,
+				1800E60C255A5E45007EC528 /* Service_TimeLogs_ViewController.swift in Sources */,
+				18283799255410B900486FD2 /* Home_Search_TableViewCell.swift in Sources */,
 				185A789D254C3D7A00EE766E /* IntroScreenCollectionViewCell.swift in Sources */,
 				18C5CB2A254B2C3A00E09B3C /* Extensions.swift in Sources */,
+				1882335D2552BD1800E16CBF /* Home_Health_ViewController.swift in Sources */,
+				1800E608255A5B04007EC528 /* Service_TimeTracker_ViewController.swift in Sources */,
+				182837962554108800486FD2 /* Home_Search_ViewController.swift in Sources */,
+				188233602552BDB200E16CBF /* CustomViewForHealth.swift in Sources */,
 				18C5CB11254B294000E09B3C /* AppDelegate.swift in Sources */,
+				185E56CE2551612C00281AED /* Home_ApplyLeave_TableViewCell.swift in Sources */,
+				1862E1EF25582E890016D7A0 /* CustomClassWithNavBar.swift in Sources */,
 				185A78B7254CBA9800EE766E /* HomeViewController.swift in Sources */,
+				1858AE86255902910096BF67 /* Service_LeaveTracker_ViewController.swift in Sources */,
 				185A78BB254CCBDF00EE766E /* Home_LeaveReport_TableViewCell.swift in Sources */,
+				1858AE942559202A0096BF67 /* Service_LeaveView_TableViewCell.swift in Sources */,
+				1862E1EB255821170016D7A0 /* ServicesViewController.swift in Sources */,
 				18B15D2C254F358700937344 /* TabViewController.swift in Sources */,
+				1865E6C625513E170064EA65 /* Home_LeaveReport_ViewController.swift in Sources */,
+				1862E1F3255844DC0016D7A0 /* ServicesCollectionViewCell.swift in Sources */,
+				187CDCFE2559B4FD0033EB98 /* Service_Filter_ViewController.swift in Sources */,
+				1858AE97255945620096BF67 /* Service_LeaveDetail_ViewController.swift in Sources */,
+				18959100255534C5000E70AB /* CustomViewForProfileSection.swift in Sources */,
+				1800E600255A4EA2007EC528 /* Service_Holidays_ViewController.swift in Sources */,
+				1858AE91255912000096BF67 /* Service_LeaveView_ViewController.swift in Sources */,
 				185A78AF254C902F00EE766E /* CustomPageControl.swift in Sources */,
-				18B5416125511ED70058E36D /* Home_DepartmentMembers_TableViewCell.swift in Sources */,
+				1858AE8E255907000096BF67 /* Service_LeaveTracker_TableViewCell.swift in Sources */,
+				1865E6CA2551532F0064EA65 /* Home_ApplyLeave_ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -451,8 +607,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Zoho/Zoho.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97GS54QT3Z;
 				INFOPLIST_FILE = Zoho/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -470,8 +629,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Zoho/Zoho.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 97GS54QT3Z;
 				INFOPLIST_FILE = Zoho/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -10,4 +10,7 @@ target 'Zoho' do
 	pod 'Firebase/Auth'
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
+	pod 'GoogleSignIn'
+	pod 'SVProgressHUD'
+
 end

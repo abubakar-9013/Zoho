@@ -7,13 +7,64 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+import SystemConfiguration.CaptiveNetwork
+import CoreLocation
+import SVProgressHUD
 
-class HomeViewController: UIViewController {
+
+
+class HomeViewController: UIViewController, CLLocationManagerDelegate {
+    
+    
+    var docRef:DocumentReference!
+    
+    var locationManager = CLLocationManager()
+    var currentNetworkInfos: Array<NetworkInfo>? {
+        get {
+            return SSID.fetchNetworkInfo()
+        }
+    }
     
     var isCheckedIn = false
     var timer = Timer()
     var timer2 = Timer()
     var timer3 = Timer()
+    var goodToGo = false
+    
+    let ssidLabel:UILabel = {
+
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
+
+    }()
+
+    let bssidLabel:UILabel = {
+       
+        let lbl = UILabel()
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        return lbl
+        
+    }()
+    
+    
+    let greenThumbView:UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 125, height:50))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 25
+        view.backgroundColor = .segmentControlGreen
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    let clearThumbView:UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 125, height:50))
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 25
+        view.backgroundColor = .yellow
+        return view
+    }()
     
     let profilePictureView:UIView = {
        
@@ -30,8 +81,8 @@ class HomeViewController: UIViewController {
     
     let searchView:UIView = {
        
-        let containView = UIView(frame: CGRect(x: 0, y: 0, width: 24.autoSized, height: 24.autoSized))
-        let imageview = UIImageView(frame: CGRect(x: -20.autoSized, y: 2.autoSized, width: 24.autoSized, height: 24.autoSized))
+        let containView = UIView(frame: CGRect(x: 0, y: 2, width: 24.autoSized, height: 24.autoSized))
+        let imageview = UIImageView(frame: CGRect(x: 0.autoSized, y: 2.autoSized, width: 24.autoSized, height: 24.autoSized))
         imageview.image = UIImage(named: "search")
         imageview.contentMode = .scaleAspectFill
         imageview.layer.masksToBounds = true
@@ -90,7 +141,8 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .LightWhite
         view.translatesAutoresizingMaskIntoConstraints = false
         view.dropShadow(color: .veryLightGrey, opacity: 0.5, offSet: CGSize(width: -1.autoSized, height: 1.autoSized), radius: 3.autoSized, scale: true)
-        
+//        let tapGest = UITapGestureRecognizer(target: self, action: #selector(gotToHealth))
+//        view.addGestureRecognizer(tapGest)
         return view
     }()
     
@@ -469,6 +521,7 @@ class HomeViewController: UIViewController {
         let btn = UIButton()
         btn.setImage(UIImage(named: "plus"), for: .normal)
         btn.translatesAutoresizingMaskIntoConstraints = false
+        btn.addTarget(self, action: #selector(openLeave), for: .touchUpInside)
         return btn
         
     }()
@@ -492,6 +545,7 @@ class HomeViewController: UIViewController {
         btn.titleLabel?.font = UIFont.systemFont(ofSize: 12.autoSized, weight: .heavy)
         btn.backgroundColor = .LightBackgroundBlue
         btn.setTitleColor(.black, for: .normal)
+        btn.addTarget(self, action: #selector(viewLeaveReport), for: .touchUpInside)
         return btn
         
     }()
@@ -641,7 +695,18 @@ class HomeViewController: UIViewController {
         viewMoreBtn.layer.cornerRadius = 18.autoSized
         departmentViewMoreBtn.layer.cornerRadius = 20.autoSized
         
-       
+        let tapGest = UITapGestureRecognizer(target: self, action: #selector(gotToHealth))
+        updateView.addGestureRecognizer(tapGest)
+        
+        let openNotificationGest = UITapGestureRecognizer(target: self, action: #selector(openNotification))
+        bellView.addGestureRecognizer(openNotificationGest)
+        
+        let searchGest = UITapGestureRecognizer(target: self, action: #selector(openSearch))
+        searchView.addGestureRecognizer(searchGest)
+        
+        let openProfileGest = UITapGestureRecognizer(target: self, action: #selector(openProfile))
+        profilePictureView.addGestureRecognizer(openProfileGest)
+        
         
         
     }
@@ -649,7 +714,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
         
@@ -658,13 +723,63 @@ class HomeViewController: UIViewController {
         let profileBarBtn = UIBarButtonItem(customView: profilePictureView)
         let searchBarBtn = UIBarButtonItem(customView: searchView)
         let bellBarBtn = UIBarButtonItem(customView: bellView)
+        let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        space.width = 30
         self.navigationItem.leftBarButtonItem = profileBarBtn
-        self.navigationItem.rightBarButtonItems = [bellBarBtn,searchBarBtn]
+        self.navigationItem.rightBarButtonItems = [bellBarBtn,space,searchBarBtn]
+        
+//        NSLayoutConstraint.activate([
+//
+//            ssidLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            ssidLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//
+//            bssidLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+//            bssidLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20),
+//        ])
+        
+        if #available(iOS 13.0, *) {
+            let status = CLLocationManager.authorizationStatus()
+            if status == .authorizedWhenInUse {
+                updateWiFi()
+            } else {
+                locationManager.delegate = self
+                locationManager.requestWhenInUseAuthorization()
+            }
+        } else {
+            updateWiFi()
+        }
+        
         
         setupHomeVC()
         
             
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
+    func updateWiFi() {
+        print("SSID: \(currentNetworkInfos?.first?.ssid ?? "")")
+        
+        if let ssid = currentNetworkInfos?.first?.ssid {
+//            ssidLabel.text = "SSID: \(ssid)"
+            print("SSID: \(ssid)")
+        }
+        
+        if let bssid = currentNetworkInfos?.first?.bssid {
+//            bssidLabel.text = "BSSID: \(bssid)"
+            print("BSSID: \(bssid)")
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            updateWiFi()
+        }
+    }
+    
     
     func moveRight(view: UIView) {
         view.center.x += 15.autoSized
@@ -676,12 +791,13 @@ class HomeViewController: UIViewController {
     
     func LeftToRightAnimation(View:UIView) {
         
-        timer2 = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
-            UIView.animate(withDuration: 1, animations: {
+        timer2 = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            self.sunImageView.startRotation()
+            UIView.animate(withDuration: 2.5, animations: {
                 self.moveRight(view: View)
             }) { (finished) in
                 if finished {
-                    UIView.animate(withDuration: 1, animations: {
+                    UIView.animate(withDuration: 2.5, animations: {
                         self.moveLeft(view: View)
                     })
                 }
@@ -691,12 +807,12 @@ class HomeViewController: UIViewController {
     
     func RightToLeftAnimation(View:UIView) {
         
-        timer3 = Timer.scheduledTimer(withTimeInterval: 2, repeats: true) { (timer) in
-            UIView.animate(withDuration: 1, animations: {
+        timer3 = Timer.scheduledTimer(withTimeInterval: 5, repeats: true) { (timer) in
+            UIView.animate(withDuration: 2.5, animations: {
                 self.moveLeft(view: View)
             }) { (finished) in
                 if finished {
-                    UIView.animate(withDuration: 1, animations: {
+                    UIView.animate(withDuration: 2.5, animations: {
                         self.moveRight(view: View)
                     })
                 }
@@ -709,67 +825,136 @@ class HomeViewController: UIViewController {
     
     @objc func startTimer() {
         
-        
-        let date = NSDate()
-        let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:mm:ss"
-        let currentTime = timeFormatter.string(from: date as Date)
-        
-        let dayFormatter = DateFormatter()
-        dayFormatter.dateFormat = "MMMM-dd-yyyy"
-        let currentDay = dayFormatter.string(from: date as Date)
-        
-        if isCheckedIn == true {
-            isCheckedIn = false
-            sunImageView.stopRotation()
-            Firebase.Firestore.firestore().collection("Attendance").document("UserID").setData([currentDay : [ "Check-Out-Time": currentTime, "Date": currentDay]
-            ], merge: true)
-            checkoutButton.setTitle("CHECK-IN", for: .normal)
-            timer.invalidate()
-            timer2.invalidate()
-            timer3.invalidate()
-            
+        SVProgressHUD.show()
+       docRef = Firestore.firestore().document("/Wifi /O3")
+       docRef.getDocument { (docSnap, error) in
+        if error != nil {
+            SVProgressHUD.dismiss()
+            print("Error is \(error!)")
         }
         else {
-            isCheckedIn = true
-            checkoutButton.setTitle("CHECK-OUT", for: .normal)
-            LeftToRightAnimation(View:leftCloudImageView)
-            RightToLeftAnimation(View: rightCloudImageView)
-            //Add CheckIn time to Firestore
-            Firebase.Firestore.firestore().collection("Attendance").document("UserID").setData([currentDay : [ "Check-In-Time": currentTime]
-            ])
+                guard let docSnap = docSnap, docSnap.exists
+                else {
+                    SVProgressHUD.dismiss()
+                    return
+                }
             
-            var secondCount = 0
-            var minuteCount = 0
-            var hourCount = 0
-            
-            timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {
-                [weak self] (timer) in
-                    secondCount += 1
-                    self!.sunImageView.startRotation()
-                    self!.secondsLabel.pushTransition(1)
-                    self!.secondsLabel.text = String(format: "%02d", secondCount)
+                guard let wifiData = docSnap.data()
+                else {
+                    SVProgressHUD.dismiss()
+                    return
+                }
+                let authenticatedSSID = wifiData["SSID"] as! String
+                let authenticatedBSSID = wifiData["BSSID"] as! String
+                if authenticatedSSID == self.currentNetworkInfos?.first?.ssid && authenticatedBSSID == self.currentNetworkInfos?.first?.bssid {
                 
-                 if secondCount == 60 {
-                    secondCount = 0
-                    minuteCount += 1
-                    self?.minuteLabel.text = String(format: "%02d", minuteCount)
-                    self?.minuteLabel.pushTransition(1)
-                    self!.secondsLabel.text = String(format: "%02d", secondCount)
-                if minuteCount == 60 {
-                    minuteCount = 0
-                    hourCount += 1
-                    self?.minuteLabel.text = String(format: "%02d", minuteCount)
-                    self?.hourLabel.pushTransition(1)
-                    self?.minuteLabel.text = String(format: "%02d", hourCount)
+                    SVProgressHUD.dismiss()
+                    //ChecK-In Verified
+                 let date = NSDate()
+                 let timeFormatter = DateFormatter()
+                 timeFormatter.dateFormat = "HH:mm:ss"
+                 let currentTime = timeFormatter.string(from: date as Date)
+                 let dayFormatter = DateFormatter()
+                 dayFormatter.dateFormat = "MMMM-dd-yyyy"
+                 let currentDay = dayFormatter.string(from: date as Date)
+                
+                 if self.isCheckedIn == true {
+                    
+                      self.isCheckedIn = false
+                      self.sunImageView.stopRotation()
+                      Firebase.Firestore.firestore().collection("Attendance").document("UserID").setData([currentDay : [ "Check-Out-Time": currentTime, "Date": currentDay]
+                        ], merge: true)
+                      self.checkoutButton.setTitle("CHECK-IN", for: .normal)
+                      self.timer.invalidate()
+                      self.timer2.invalidate()
+                      self.timer3.invalidate()
+                 }
+                 else {
+                    
+                      self.isCheckedIn = true
+                      self.checkoutButton.setTitle("CHECK-OUT", for: .normal)
+                      self.LeftToRightAnimation(View:self.leftCloudImageView)
+                      self.RightToLeftAnimation(View: self.rightCloudImageView)
+                      
+                      //Add CheckIn time to Firestore
+                      Firebase.Firestore.firestore().collection("Attendance").document("UserID").setData([currentDay : [ "Check-In-Time": currentTime]
+                      ])
+                        
+                      var secondCount = 0
+                      var minuteCount = 0
+                      var hourCount = 0
+                      self.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [weak self] (timer) in
+                            
+                            secondCount += 1
+                            self!.secondsLabel.pushTransition(1)
+                            self!.secondsLabel.text = String(format: "%02d", secondCount)
+                            
+                             if secondCount == 60 {
+                                secondCount = 0
+                                minuteCount += 1
+                                self?.minuteLabel.text = String(format: "%02d", minuteCount)
+                                self?.minuteLabel.pushTransition(1)
+                                self!.secondsLabel.text = String(format: "%02d", secondCount)
+                                
+                            if minuteCount == 60 {
+                                minuteCount = 0
+                                hourCount += 1
+                                self?.minuteLabel.text = String(format: "%02d", minuteCount)
+                                self?.hourLabel.pushTransition(1)
+                                self?.minuteLabel.text = String(format: "%02d", hourCount)
+                              }
+                           }
+                        }
+                    }
+                }
+                else {
+                    
+                    SVProgressHUD.dismiss()
+                        
+                    let alert = UIAlertController(title: "Action Prohibited", message: "Your are not connected to O3 Network", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .destructive, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }
     }
-}
     
     @objc func viewMore() {
         let vc = Home_DepartmentMembers_ViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func viewLeaveReport() {
+        let vc = Home_LeaveReport_ViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func gotToHealth () {
+        let vc = Home_Health_ViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func openNotification() {
+        
+        let vc = Home_Notification_ViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func openSearch() {
+    
+        let vc = Home_Search_ViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @objc func openProfile() {
+        let vc = Home_Profile_ViewController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: true, completion: nil)
+    }
+    
+    @objc func openLeave() {
+        let vc = Home_ApplyLeave_ViewController()
+        vc.modalPresentationStyle = .fullScreen
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -778,7 +963,8 @@ class HomeViewController: UIViewController {
     func setupHomeVC() {
         
         
-        
+        view.addSubview(ssidLabel)
+        view.addSubview(bssidLabel)
         view.addSubview(scrollView)
         scrollView.addSubview(mainContentView)
         
@@ -1240,5 +1426,154 @@ extension HomeViewController:UITableViewDelegate,UITableViewDataSource {
     
 }
 
+public class SSID {
+    class func fetchNetworkInfo() -> [NetworkInfo]? {
+        if let interfaces: NSArray = CNCopySupportedInterfaces() {
+            var networkInfos = [NetworkInfo]()
+            for interface in interfaces {
+                let interfaceName = interface as! String
+                var networkInfo = NetworkInfo(interface: interfaceName,
+                                              success: false,
+                                              ssid: nil,
+                                              bssid: nil)
+                if let dict = CNCopyCurrentNetworkInfo(interfaceName as CFString) as NSDictionary? {
+                    networkInfo.success = true
+                    networkInfo.ssid = dict[kCNNetworkInfoKeySSID as String] as? String
+                    networkInfo.bssid = dict[kCNNetworkInfoKeyBSSID as String] as? String
+                }
+                networkInfos.append(networkInfo)
+            }
+            return networkInfos
+        }
+        return nil
+    }
+}
+
+
+
+
+
+
+
+
+
+/*
+ 
+ //MARK:- SSID Working
+ 
+ import UIKit
+ import SystemConfiguration.CaptiveNetwork
+ import CoreLocation
+
+ class ViewController: UIViewController, CLLocationManagerDelegate {
+     
+     var locationManager = CLLocationManager()
+     var currentNetworkInfos: Array<NetworkInfo>? {
+         get {
+             return SSID.fetchNetworkInfo()
+         }
+     }
+
+     
+     let ssidLabel:UILabel = {
+
+         let lbl = UILabel()
+         lbl.translatesAutoresizingMaskIntoConstraints = false
+         return lbl
+
+     }()
+
+     let bssidLabel:UILabel = {
+        
+         let lbl = UILabel()
+         lbl.translatesAutoresizingMaskIntoConstraints = false
+         return lbl
+         
+     }()
+     
+     override func viewDidLoad() {
+         super.viewDidLoad()
+         view.backgroundColor = .yellow
+         view.addSubview(ssidLabel)
+         view.addSubview(bssidLabel)
+         
+         NSLayoutConstraint.activate([
+         
+             ssidLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+             ssidLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+             
+             bssidLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+             bssidLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 20),
+         ])
+         
+         if #available(iOS 13.0, *) {
+             let status = CLLocationManager.authorizationStatus()
+             if status == .authorizedWhenInUse {
+                 updateWiFi()
+             } else {
+                 locationManager.delegate = self
+                 locationManager.requestWhenInUseAuthorization()
+             }
+         } else {
+             updateWiFi()
+         }
+     }
+     
+     func updateWiFi() {
+         print("SSID: \(currentNetworkInfos?.first?.ssid ?? "")")
+         
+         if let ssid = currentNetworkInfos?.first?.ssid {
+             ssidLabel.text = "SSID: \(ssid)"
+         }
+         
+         if let bssid = currentNetworkInfos?.first?.bssid {
+             bssidLabel.text = "BSSID: \(bssid)"
+         }
+         
+     }
+     
+     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+         if status == .authorizedWhenInUse {
+             updateWiFi()
+         }
+     }
+     
+ }
+
+ public class SSID {
+     class func fetchNetworkInfo() -> [NetworkInfo]? {
+         if let interfaces: NSArray = CNCopySupportedInterfaces() {
+             var networkInfos = [NetworkInfo]()
+             for interface in interfaces {
+                 let interfaceName = interface as! String
+                 var networkInfo = NetworkInfo(interface: interfaceName,
+                                               success: false,
+                                               ssid: nil,
+                                               bssid: nil)
+                 if let dict = CNCopyCurrentNetworkInfo(interfaceName as CFString) as NSDictionary? {
+                     networkInfo.success = true
+                     networkInfo.ssid = dict[kCNNetworkInfoKeySSID as String] as? String
+                     networkInfo.bssid = dict[kCNNetworkInfoKeyBSSID as String] as? String
+                 }
+                 networkInfos.append(networkInfo)
+             }
+             return networkInfos
+         }
+         return nil
+     }
+ }
+
+ struct NetworkInfo {
+     var interface: String
+     var success: Bool = false
+     var ssid: String?
+     var bssid: String?
+ }
+
+ 
+ 
+ 
+ 
+ */
 
 

@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import GoogleSignIn
+import Firebase
+
 
 class IntroScreenViewController: UIViewController {
     
@@ -15,7 +18,7 @@ class IntroScreenViewController: UIViewController {
         layout.itemSize = CGSize(width: 375.autoSized, height: 480.autoSized)
         layout.scrollDirection = .horizontal
         
-        var collectionview = UICollectionView(frame: CGRect(x: 0, y: 50, width: 375.autoSized, height: 480.autoSized), collectionViewLayout: layout)
+        var collectionview = UICollectionView(frame: CGRect(x: 0, y: 50.autoSized, width: 375.autoSized, height: 480.autoSized), collectionViewLayout: layout)
         collectionview.register(IntroScreenCollectionViewCell.self, forCellWithReuseIdentifier: "myCell")
         collectionview.backgroundColor = .BackgroundGrey
         collectionview.isPagingEnabled = true
@@ -44,22 +47,27 @@ class IntroScreenViewController: UIViewController {
     
     
     
-    let signinWithZoho_Button:UIButton = {
+    let signinWithGoogle_Button:UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Sign in with Zoho", for: .normal)
+        btn.setTitle("Sign in with Google", for: .normal)
         btn.setTitleColor(.black, for: .normal)
         btn.titleLabel!.font = UIFont(name: "Core Sans M 55 Medium", size: 15.autoSized)
         btn.layer.borderWidth = 1.autoSized
         btn.layer.borderColor = UIColor.lightGray.cgColor
         btn.backgroundColor = .white
-        //btn.addTarget(self, action: #selector(zohoButtonClicked(sender:)), for: .touchUpInside)
-        
+        btn.imageView?.frame = CGRect(x: 0, y: 0, width: 24.autoSized, height: 24.autoSized)
+        btn.imageEdgeInsets = UIEdgeInsets(top: 13, left: -5.autoSized, bottom: 14, right: 0)
+       btn.titleEdgeInsets = UIEdgeInsets(top: 0, left: -145, bottom: 0, right: 0)
+          btn.setImage(UIImage(named: "google"), for: .normal)
+       btn.imageView?.contentMode = .scaleAspectFit
+        btn.addTarget(self, action: #selector(googleButtonClicked(sender:)), for: .touchUpInside)
+
        return btn
-        
+
     }()
-    
-    
+
+  
     let signinWithApple_Button:UIButton = {
         let btn = UIButton()
         btn.translatesAutoresizingMaskIntoConstraints = false
@@ -104,17 +112,14 @@ class IntroScreenViewController: UIViewController {
     
     //MARK:- IBActions
     
-    @objc func zohoButtonClicked(sender:UIButton) {
-        let vc = HomeViewController()
-        let navController = UINavigationController(rootViewController: vc)
-        navController.modalPresentationStyle = .fullScreen
-        self.present(navController, animated: true)
+    @objc func googleButtonClicked(sender:UIButton) {
+        GIDSignIn.sharedInstance()?.signIn()
     }
-    
+ 
 
     override func viewDidLayoutSubviews() {
         
-        signinWithZoho_Button.layer.cornerRadius = 8.autoSized
+        signinWithGoogle_Button.layer.cornerRadius = 8.autoSized
         signinWithApple_Button.layer.cornerRadius = 8.autoSized
     }
     
@@ -122,6 +127,10 @@ class IntroScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+
+       
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -132,7 +141,7 @@ class IntroScreenViewController: UIViewController {
     
     func setupViews() {
         
-        view.addSubview(signinWithZoho_Button)
+        view.addSubview(signinWithGoogle_Button)
         view.addSubview(signinWithApple_Button)
         view.addSubview(bottomLabel)
         view.addSubview(signupButton)
@@ -145,10 +154,10 @@ class IntroScreenViewController: UIViewController {
         NSLayoutConstraint.activate([
         
             //Zoho Button
-            signinWithZoho_Button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
-            signinWithZoho_Button.widthAnchor.constraint(equalToConstant: 302.autoSized),
-            signinWithZoho_Button.heightAnchor.constraint(equalToConstant: 45.autoSized),
-            signinWithZoho_Button.bottomAnchor.constraint(equalTo: signinWithApple_Button.topAnchor, constant: -15.autoSized),
+            signinWithGoogle_Button.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0),
+            signinWithGoogle_Button.widthAnchor.constraint(equalToConstant: 302.autoSized),
+            signinWithGoogle_Button.heightAnchor.constraint(equalToConstant: 45.autoSized),
+            signinWithGoogle_Button.bottomAnchor.constraint(equalTo: signinWithApple_Button.topAnchor, constant: -15.autoSized),
             
             
             //Apple Button
@@ -171,7 +180,7 @@ class IntroScreenViewController: UIViewController {
             //PageControl
             pageControl.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
             pageControl.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -100),
-            pageControl.bottomAnchor.constraint(equalTo: signinWithZoho_Button.topAnchor, constant: -20)
+            pageControl.bottomAnchor.constraint(equalTo: signinWithGoogle_Button.topAnchor, constant: -20)
         
         ])
         

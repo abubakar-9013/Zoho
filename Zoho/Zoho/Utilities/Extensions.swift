@@ -26,6 +26,7 @@ extension UIView {
        }
     
     func pushTransition(_ duration:CFTimeInterval) {
+        
          let animation:CATransition = CATransition()
          animation.timingFunction = CAMediaTimingFunction(name:
          CAMediaTimingFunctionName.default)
@@ -38,7 +39,7 @@ extension UIView {
     func startRotation() {
                 let rotation : CABasicAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
                 rotation.toValue = NSNumber(value: Double.pi * 2)
-                rotation.duration = 1
+                rotation.duration = 5
                 rotation.isCumulative = true
                 rotation.repeatCount = Float.greatestFiniteMagnitude
                 self.layer.add(rotation, forKey: "rotationAnimation")
@@ -54,6 +55,32 @@ extension UIView {
    
     }
  }
+
+
+
+extension UIImage {
+//    func createSelectionIndicator(color: UIColor, size: CGSize, lineWidth: CGFloat) -> UIImage {
+//        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+//        color.setFill()
+//        UIRectFill(CGRect(x: 0, y: size.height - lineWidth, width: size.width, height: lineWidth))
+//        let image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return image!
+//    }
+    
+    func getImageWithColorPosition(color: UIColor, size: CGSize, lineSize: CGSize) -> UIImage {
+            let rect = CGRect(x:0, y: 0, width: size.width, height: size.height)
+            let rectLine = CGRect(x:0, y:size.height-lineSize.height,width: lineSize.width,height: lineSize.height)
+            UIGraphicsBeginImageContextWithOptions(size, false, 0)
+            UIColor.clear.setFill()
+            UIRectFill(rect)
+            color.setFill()
+            UIRectFill(rectLine)
+            let image: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
+            UIGraphicsEndImageContext()
+            return image
+        }
+}
 
 
 
@@ -152,7 +179,35 @@ extension UIColor {
         return UIColor(red: .random(in: 0...1), green: .random(in: 0...1),blue: .random(in: 0...1), alpha: 1)
                         
         }
+    
+    static var veryLightBlack:UIColor {
+        return UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 0.1)
+    }
+    
+    static var buttonGreen:UIColor {
+        return UIColor(red: 0/255, green: 219/255, blue: 197/255, alpha: 1)
+    }
+    
+    static var profileHeaderBlue:UIColor {
+        return UIColor(red: 137/255, green: 132/255, blue: 255/255, alpha: 1)
+    }
+    
+    static var profileShadowBlue:UIColor {
+        return UIColor(red: 120/255, green: 132/255, blue: 245/255, alpha: 1)
 
+    }
+    
+    static var segmentControlGrey:UIColor {
+        return UIColor(red: 234/255, green: 234/255, blue: 239/255, alpha: 1)
+
+    }
+    
+    static var segmentControlGreen:UIColor {
+        return UIColor(red: 74/255, green: 223/255, blue: 160/255, alpha: 1)
+
+    }
+    
+    
     
 }
 
